@@ -32,9 +32,11 @@ public class TestActivity extends AppCompatActivity {
         col.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                expandableLayout.collapse();
+                //expandableLayout.collapse();
+                btn.setTranslationY(20);
             }
         });
+
 
 
     }

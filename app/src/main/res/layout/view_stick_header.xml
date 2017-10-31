@@ -7,30 +7,6 @@
     <include layout="@layout/view_header3" />
 
 
-    <LinearLayout
-        android:id="@+id/layout_filter"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="40dp"
-        android:background="#ee747272"
-        android:orientation="vertical"
-        android:visibility="invisible">
 
-        <net.cachapa.expandablelayout.ExpandableLayout
-            android:id="@+id/expandableLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#fff"
-            app:el_duration="600"
-            app:el_expanded="true"
-            app:el_parallax="0.5">
-
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/recyclerView_filter"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
-
-        </net.cachapa.expandablelayout.ExpandableLayout>
-    </LinearLayout>
 
 </FrameLayout>
