@@ -65,7 +65,7 @@ public class StickHeaderFragment extends Fragment {
         });
         final View header3 = LayoutInflater.from(getContext()).inflate(R.layout.view_header3, recyclerView, false);
         commonAdapter.addHeaderView(header3);
-       // header3.setBackgroundColor(Color.BLUE);
+        // header3.setBackgroundColor(Color.BLUE);
         initStickView(header3);
         commonAdapter.addData(data);
         recyclerView.setAdapter(commonAdapter);
@@ -101,7 +101,8 @@ public class StickHeaderFragment extends Fragment {
     }
 
     private void addScrollListener() {
-       layoutStickHeader.setTranslationY(top);
+        // 设置header的位置  ，header只负责占位  与banner3 位置一直重合
+        layoutStickHeader.setTranslationY(top);
         recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
