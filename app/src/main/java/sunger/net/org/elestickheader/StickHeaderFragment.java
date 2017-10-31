@@ -2,6 +2,7 @@ package sunger.net.org.elestickheader;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
@@ -9,12 +10,15 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 
@@ -37,13 +41,13 @@ public class StickHeaderFragment extends Fragment {
     private LinearLayoutManager linearLayoutManager;
     private int top = -1;
 
+    private LinearLayout banner2;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_stickheader, container, false);
     }
-
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
@@ -67,6 +71,14 @@ public class StickHeaderFragment extends Fragment {
 
         View header2 = LayoutInflater.from(getContext()).inflate(R.layout.view_header_banner2, recyclerView, false);
         commonAdapter.addHeaderView(header2);
+        banner2 = (LinearLayout) header2.findViewById(R.id.banner2);
+        banner2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), TestActivity.class);
+                startActivity(intent);
+            }
+        });
 
         final View header3 = LayoutInflater.from(getContext()).inflate(R.layout.view_header3, recyclerView, false);
         initStickView(header3);
@@ -75,6 +87,7 @@ public class StickHeaderFragment extends Fragment {
 
         commonAdapter.addData(data);
         recyclerView.setAdapter(commonAdapter);
+
         layoutFilter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -84,6 +97,7 @@ public class StickHeaderFragment extends Fragment {
         expandableLayout.setOnExpansionUpdateListener(new ExpandableLayout.OnExpansionUpdateListener() {
             @Override
             public void onExpansionUpdate(float expansionFraction, int state) {
+                Log.w("TAG", expansionFraction + "----->>>" + state);
                 if (state == 0) {
                     layoutFilter.setVisibility(View.GONE);
                 }
@@ -117,6 +131,7 @@ public class StickHeaderFragment extends Fragment {
             @Override
             public void onGlobalLayout() {
                 top = view.getTop();
+                Log.w("TAG", "----->>>" + top);
                 addHeaderFilterClickListener(view);
                 addScrollListener();
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {

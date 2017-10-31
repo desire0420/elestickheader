@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <net.cachapa.expandablelayout.ExpandableLayout
+        android:id="@+id/expandableLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#fff"
+        app:el_duration="600"
+        app:el_expanded="true"
+        app:el_parallax="0.5">
+
+        <TextView
+            android:id="@+id/txt"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="110dp"
+            android:text="wwwwwwwwcrcrcrcrcr"></TextView>
+
+    </net.cachapa.expandablelayout.ExpandableLayout>
+    <Button
+    android:id="@+id/btn"
+    android:text="展开"
+    android:layout_width="match_parent"
+    android:layout_height="38dp" />
+    <Button
+        android:id="@+id/col"
+        android:text="收起"
+        android:layout_width="match_parent"
+        android:layout_height="38dp" />
+
+</LinearLayout>
